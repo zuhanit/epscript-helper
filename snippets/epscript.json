@@ -1,0 +1,90 @@
+{
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+            "\tconst ${3:element} = ${2:array}[${1:index}];",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop"
+    },
+    "For-Each Loop": {
+        "prefix": "foreach",
+        "body": [
+            "foreach(${2:element} : ${1:array}) {",
+            "\t$0",
+            "});"
+        ],
+        "description": "For-Each Loop"
+    },
+    "Function Statement": {
+        "prefix": "function",
+        "body": [
+            "function ${1:name}(${2:params}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function Statement"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If Statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "} else {",
+            "\t",
+            "}"
+        ],
+        "description": "If-Else Statement"
+    },
+    "ElseIf Statement": {
+        "prefix": "elseif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "ElseIf Statement"
+    },
+    "Switch Statement": {
+        "prefix": "switch",
+        "body": [
+            "EUDSwitch(${1:key});",
+            "\tEUDSwitchCase()(${2:value});",
+            "\t\t$0",
+            "\t\tbreak;",
+            "",
+            "\tEUDSwitchDefault()();",
+            "\t\tbreak;",
+            "EUDEndSwitch();"
+        ],
+        "description": "Switch Statement"
+    },
+    "While Statement": {
+        "prefix": "while",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While Statement"
+    },
+    "Import external module.": {
+        "prefix": "import as statement",
+        "body": [
+            "import ${1:module} as ${2:name};",
+            "$0"
+        ],
+        "description": "Import external module."
+    }
+}

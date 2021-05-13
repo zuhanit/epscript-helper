@@ -10,10 +10,37 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onLanguage:epscript"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+        "languages": [
+            {
+                "id": "epscript",
+                "aliases": [
+                    "epScript",
+                    "epscript",
+                    "eps"
+                ],
+                "extensions": [
+                    ".eps"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "epscript",
+                "scopeName": "source.eps",
+                "path": "./syntaxes/epScript.tmLanguage.json"
+            }
+        ],
+		"snippets": [
+			{
+				"language": "epscript",
+				"path": "./snippets/epscript.json" 
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
