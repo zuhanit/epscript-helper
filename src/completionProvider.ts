@@ -40,14 +40,16 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
             const currentParameterName = currentFunctionParams.params[paramCount].name;
             const currentParameterTypes = params[currentParameterName as keyof typeof params].type;
             for (let i in currentParameterTypes) {
-                const parameterTypesName = `"${currentParameterTypes[i]}"`;
+                const parameterTypesName: string = currentParameterName === 'Unit' ? `"${currentParameterTypes[i]}"` : `${currentParameterTypes[i]}`;
                 const completion = new vscode.CompletionItem(parameterTypesName);
-                console.log(completion);
+                completion.kind = vscode.CompletionItemKind.Constant;
                 completionItemList.push(completion);
             }
         } else if(isInFunctionScope === false) {
             for (let i in functions) {
                 const completion = new vscode.CompletionItem(i);
+                completion.kind = vscode.CompletionItemKind.Function;
+                completion.documentation = functions[i as keyof typeof functions].description;
                 completionItemList.push(completion);
             }
         }
