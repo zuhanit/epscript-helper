@@ -3,42 +3,51 @@
 	"displayName": "epscript helper",
 	"description": "",
 	"version": "0.0.1",
+	"author": {
+		"name": "zuhanit"
+	},
 	"engines": {
 		"vscode": "^1.56.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"type": "git",
+		"directory": "https://github.com/zuhanit/epscript-helper",
+		"url": "https://github.com/zuhanit/epscript-helper.git"
+	},
+	"icon": "images/icon.png",
 	"activationEvents": [
 		"onLanguage:epscript"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-        "languages": [
-            {
-                "id": "epscript",
-                "aliases": [
-                    "epScript",
-                    "epscript",
-                    "eps"
-                ],
-                "extensions": [
-                    ".eps"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "epscript",
-                "scopeName": "source.eps",
-                "path": "./syntaxes/epScript.tmLanguage.json"
-            }
-        ],
+		"languages": [
+			{
+				"id": "epscript",
+				"aliases": [
+					"epScript",
+					"epscript",
+					"eps"
+				],
+				"extensions": [
+					".eps"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "epscript",
+				"scopeName": "source.eps",
+				"path": "./syntaxes/epScript.tmLanguage.json"
+			}
+		],
 		"snippets": [
 			{
 				"language": "epscript",
-				"path": "./snippets/epscript.json" 
+				"path": "./snippets/epscript.json"
 			}
 		]
 	},
