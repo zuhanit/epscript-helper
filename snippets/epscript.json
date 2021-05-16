@@ -2,8 +2,7 @@
     "For Loop": {
         "prefix": "for",
         "body": [
-            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-            "\tconst ${3:element} = ${2:array}[${1:index}];",
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}; ${1:index}++) {",
             "\t$0",
             "}"
         ],
@@ -86,5 +85,14 @@
             "$0"
         ],
         "description": "Import external module."
+    },
+    "EUDPlayerLoop Loop": {
+        "prefix": "EUDPlayerLoop",
+        "body": [
+            "EUDPlayerLoop()(); {",
+            "\t$0",
+            "EUDEndPlayerLoop();"
+        ],
+        "description": "Loop all players who is in the game. It changes the value of CurrentPlayer."
     }
 }
