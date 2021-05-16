@@ -28,6 +28,9 @@ export class EPSSignatureHelpProvider implements vscode.SignatureHelpProvider {
                 const methodNameRange = document.getWordRangeAtPosition(new vscode.Position(position.line, i-1));
                 methodName = document.getText(methodNameRange);
             }
+            if (currentCharacter === ')') {
+                return undefined;
+            }
         }
         const native = functions[methodName as keyof typeof functions];
         const paramLength = native.params.length;
@@ -38,7 +41,7 @@ export class EPSSignatureHelpProvider implements vscode.SignatureHelpProvider {
             paramArray.push(paramInfo);
         }
         const paramList = native.params.map((u: any) => `${u.name}`).join(", ");
-        const signatureLabel: string = methodName + '(' + paramList + ')';
+        const signatureLabel: string = `${methodName}(${paramList})`;
 
         const signatureHelp = new vscode.SignatureHelp();
         signatureHelp.signatures = [];
