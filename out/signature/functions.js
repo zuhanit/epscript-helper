@@ -6,10 +6,10 @@ exports.functions = {
         label: "Accumulate",
         description: "Player accumulates quantity resources.",
         params: [
-            { name: "Player" },
-            { name: "Comparison" },
-            { name: "Number" },
-            { name: "ResourceType" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
+            { name: "resourceType" },
         ],
     },
     "Always": {
@@ -20,114 +20,114 @@ exports.functions = {
     "Bring": {
         description: "Player brings quantity units to location.",
         params: [
-            { name: "Player" },
-            { name: "Comparison" },
-            { name: "Number" },
-            { name: "Unit" },
-            { name: "Number" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
+            { name: "unit" },
+            { name: "number" },
         ],
     },
     "Command": {
         description: "",
         params: [
-            { name: "Player", description: "" },
-            { name: "Comparison", description: "" },
-            { name: "Number", description: "" },
-            { name: "Unit", description: "" },
+            { name: "player", description: "" },
+            { name: "comparison", description: "" },
+            { name: "number", description: "" },
+            { name: "unit", description: "" },
         ],
     },
     "CommandLeast": {
         description: "Current player commands the least units.",
         params: [
-            { name: "Unit" }
+            { name: "unit" }
         ],
     },
     "CommandLeastAt": {
         description: "Current player commands the least units at location.",
         params: [
-            { name: "Unit" },
-            { name: "Location" }
+            { name: "unit" },
+            { name: "location" }
         ],
     },
     "CommandMost": {
         description: "Current player commands the most units.",
         params: [
-            { name: "Unit" },
+            { name: "unit" },
         ],
     },
     "CommandMostAt": {
         description: "Current player commands the most units at location.",
         params: [
-            { name: "Unit" },
-            { name: "Location" },
+            { name: "unit" },
+            { name: "location" },
         ],
     },
     "CountdownTimer": {
         description: "Countdown timer is duration game seconds.",
         params: [
-            { name: "Comparison" },
-            { name: "Time" },
+            { name: "comparison" },
+            { name: "time" },
         ],
     },
     "Deaths": {
         description: "Elapsed scenario time is duration game seconds.",
         params: [
-            { name: "Player" },
-            { name: "Comparison" },
-            { name: "Number" },
-            { name: "Unit" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
+            { name: "unit" },
         ],
     },
     "ElapsedTime": {
         description: "",
         params: [
-            { name: "Comparison" },
-            { name: "Time" },
+            { name: "comparison" },
+            { name: "time" },
         ],
     },
     "HighestScore": {
         description: "Current player has highest score points",
         params: [
-            { name: "ScoreType" },
+            { name: "scoreType" },
         ],
     },
     "Kills": {
         description: "Player kills quantity units.",
         params: [
-            { name: "Player" },
-            { name: "Comparison" },
-            { name: "Number" },
-            { name: "Unit" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
+            { name: "unit" },
         ],
     },
     "LeastKills": {
         description: "Current player has least kills of unit.",
         params: [
-            { name: "Unit" },
+            { name: "unit" },
         ],
     },
     "LeastResources": {
         description: "Current player has least resources.",
         params: [
-            { name: "ResourceType" },
+            { name: "resourceType" },
         ],
     },
     "LowestScore": {
         description: "Current player has lowest score points",
         params: [
-            { name: "ScoreType" },
+            { name: "scoreType" },
         ],
     },
     "MostKills": {
         description: "Current player has least kills of unit.",
         params: [
-            { name: "Unit" }
+            { name: "unit" }
         ],
     },
     "MostResources": {
         description: "Current player has most resources.",
         params: [
-            { name: "ResourceType" }
+            { name: "resourceType" }
         ],
     },
     "Never": {
@@ -137,56 +137,56 @@ exports.functions = {
     "Opponents": {
         description: "Player has quantity opponents remaining in the game.",
         params: [
-            { name: "Player" },
-            { name: "Comparison" },
-            { name: "Number" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
         ],
     },
     "Score": {
         description: "Player score type score is quantity.",
         params: [
-            { name: "Player" },
-            { name: "ScoreType" },
-            { name: "Comparison" },
-            { name: "Comparison" },
+            { name: "player" },
+            { name: "scoreType" },
+            { name: "comparison" },
+            { name: "comparison" },
         ],
     },
     "Switch": {
         description: "Switch is set.",
         params: [
-            { name: "Switch" },
-            { name: "State" },
+            { name: "switch" },
+            { name: "state" },
         ],
     },
     "CenterView": {
         description: "Center view for current player at location.",
         params: [
-            { name: "Where" },
+            { name: "Location" },
         ],
     },
     "Comment": {
         description: "comment.",
         params: [
-            { name: "Text" }
+            { name: "text" }
         ],
     },
     "CreateUnit": {
         description: "Create quantity unit at location for player",
         params: [
-            { name: "Number" },
-            { name: "Unit" },
-            { name: "Where" },
-            { name: "ForPlayer" },
+            { name: "number" },
+            { name: "unit" },
+            { name: "location" },
+            { name: "forPlayer" },
         ],
     },
     "CreateUnitWithProperties": {
         description: "Create quantity unit at location for player. Apply properties",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Where" },
-            { name: "Player" },
-            { name: "Properties" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "location" },
+            { name: "player" },
+            { name: "properties" },
         ],
     },
     "Defeat": {
@@ -196,7 +196,7 @@ exports.functions = {
     "DisplayText": {
         description: "Display for current player: text.",
         params: [
-            { name: "Text" },
+            { name: "text" },
             { name: "AlwaysDisplay" },
         ],
     },
@@ -207,41 +207,41 @@ exports.functions = {
     "GiveUnits": {
         description: "Give quantity units owned by player at location to player.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
-            { name: "NewOwner" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
+            { name: "newOwner" },
         ],
     },
     "KillUnit": {
         description: "Kill all units for player.",
         params: [
-            { name: "Unit" },
-            { name: "Player" }
+            { name: "unit" },
+            { name: "player" }
         ],
     },
     "KillUnitAt": {
         description: "Kill quantity units for player at location.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Where" },
-            { name: "ForPlayer" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "location" },
+            { name: "forPlayer" },
         ],
     },
     "LeaderBoardControlAt": {
         description: "Show Leader Board for most control of units at location. Display label: label",
         params: [
-            { name: "Unit" },
-            { name: "Location" },
+            { name: "unit" },
+            { name: "location" },
             { name: "Label" },
         ],
     },
     "LeaderBoardControl": {
         description: "Show Leader Board for most control of unit. Display label: label",
         params: [
-            { name: "Unit" },
+            { name: "unit" },
             { name: "Label" },
         ],
     },
@@ -254,43 +254,43 @@ exports.functions = {
     "LeaderBoardKills": {
         description: "Show Leader Board for most kills of unit. Display label: label",
         params: [
-            { name: "Unit" },
+            { name: "unit" },
             { name: "Label" }
         ],
     },
     "LeaderBoardScore": {
         description: "Show Leader Board for most points. Display label: label",
         params: [
-            { name: "ScoreType" },
+            { name: "scoreType" },
             { name: "Label" },
         ],
     },
     "LeaderBoardResources": {
         description: "Show Leader Board for accumulation of most resource. Display label: label",
         params: [
-            { name: "ResourceType" },
+            { name: "resourceType" },
             { name: "Label" }
         ],
     },
     "LeaderBoardComputerPlayers": {
         description: "Set use of computer players in leaderboard calculations.",
         params: [
-            { name: "State" },
+            { name: "state" },
         ],
     },
     "MinimapPing": {
         description: "Show minimap ping for current player at location.",
         params: [
-            { name: "Where" },
+            { name: "Location" },
         ],
     },
     "ModifyUnitEnergy": {
         description: "Set energy points for quantity units owned by player at location to percent%.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
             { name: "Percent" },
         ],
     },
@@ -298,56 +298,56 @@ exports.functions = {
         description: "Add at most quantity to hangar for quantity units at location owned by player.",
         params: [
             { name: "Add" },
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
         ],
     },
     "ModifyUnitHitPoints": {
         description: "Set hit points for quantity units owned by player at location to percent%.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
             { name: "Percent" },
         ],
     },
     "ModifyUnitResourceAmount": {
         description: "Set resource amount for quantity resource sources owned by player at location to quantity.",
         params: [
-            { name: "Count" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "count" },
+            { name: "owner" },
+            { name: "location" },
             { name: "NewValue" },
         ],
     },
     "ModifyUnitShields": {
         description: "Set shield points for quantity units owned by player at location to percent%.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
             { name: "Percent" },
         ],
     },
     "MoveLocation": {
         description: "Center location labeled location on units owned by player at location.",
         params: [
-            { name: "Location" },
+            { name: "location" },
             { name: "OnUnit" },
-            { name: "Owner" },
+            { name: "owner" },
             { name: "DestLocation" },
         ],
     },
     "MoveUnit": {
         description: "Move quantity units for player at location to destination.",
         params: [
-            { name: "Count" },
+            { name: "count" },
             { name: "UnitType" },
-            { name: "Owner" },
+            { name: "owner" },
             { name: "StartLocation" },
             { name: "DestLocation" },
         ],
@@ -359,8 +359,8 @@ exports.functions = {
     "Order": {
         description: "Issue order to all units owned by player at location: order to destination.",
         params: [
-            { name: "Unit" },
-            { name: "Owner" },
+            { name: "unit" },
+            { name: "owner" },
             { name: "StartLocation" },
             { name: "OrderType" },
             { name: "DestLocation" },
@@ -387,17 +387,17 @@ exports.functions = {
     "RemoveUnit": {
         description: "Remove all units for player.",
         params: [
-            { name: "Unit" },
-            { name: "Player" },
+            { name: "unit" },
+            { name: "player" },
         ],
     },
     "RemoveUnitAt": {
         description: "Remove quantity units for player at location.",
         params: [
-            { name: "Count" },
-            { name: "Unit" },
-            { name: "Where" },
-            { name: "ForPlayer" },
+            { name: "count" },
+            { name: "unit" },
+            { name: "location" },
+            { name: "forPlayer" },
         ],
     },
     "RunAIScript": {
@@ -410,13 +410,13 @@ exports.functions = {
         description: "Execute AI script script at location.",
         params: [
             { name: "Script" },
-            { name: "Where" },
+            { name: "location" },
         ],
     },
     "SetAllianceStatus": {
         description: "Set Player to Ally status.",
         params: [
-            { name: "Player" },
+            { name: "player" },
             { name: "Status" },
         ],
     },
@@ -424,40 +424,40 @@ exports.functions = {
         description: "Modify Countdown Timer: Set duration seconds.",
         params: [
             { name: "TimeModifier" },
-            { name: "Number" },
+            { name: "number" },
         ],
     },
     "SetDeaths": {
         description: "Modify death counts for player: Set quantity for unit.",
         params: [
-            { name: "Player" },
-            { name: "Modifier" },
-            { name: "Number" },
-            { name: "Unit" },
+            { name: "player" },
+            { name: "modifier" },
+            { name: "number" },
+            { name: "unit" },
         ],
     },
     "SetDoodadState": {
         description: "Set doodad state for units for player at location.",
         params: [
-            { name: "State" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "state" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
         ],
     },
     "SetInvincibility": {
         description: "Set invincibility for units owned by player at location",
         params: [
-            { name: "State" },
-            { name: "Unit" },
-            { name: "Owner" },
-            { name: "Where" },
+            { name: "state" },
+            { name: "unit" },
+            { name: "owner" },
+            { name: "location" },
         ],
     },
     "SetMossionObjectives": {
         description: "Set Mission Objectives to: text.",
         params: [
-            { name: "Text" },
+            { name: "text" },
         ],
     },
     "SetNextScenario": {
@@ -469,44 +469,44 @@ exports.functions = {
     "SetResources": {
         description: "Modify resources for player: Set quantity resource.",
         params: [
-            { name: "Player" },
-            { name: "Modifier" },
+            { name: "player" },
+            { name: "modifier" },
             { name: "Amount" },
-            { name: "ResourceType" },
+            { name: "resourceType" },
         ],
     },
     "SetScore": {
         description: "Modify score for player: Set quantity points.",
         params: [
-            { name: "Player" },
-            { name: "Modifier" },
+            { name: "player" },
+            { name: "modifier" },
             { name: "Amount" },
-            { name: "ScoreType" },
+            { name: "scoreType" },
         ],
     },
     "SetSwitch": {
         description: "Set switch.",
         params: [
-            { name: "Switch" },
-            { name: "State" },
+            { name: "switch" },
+            { name: "state" },
         ],
     },
     "TalkingPortrait": {
         description: "Show unit talking to current player for duration milliseconds.",
         params: [
-            { name: "Unit" },
-            { name: "Time" },
+            { name: "unit" },
+            { name: "time" },
         ],
     },
     "Transmission": {
-        description: "Send transmission to current player from unit at location.\nPlay WAV file. Modify transmission duration: Set number milliseconds.\nDisplay the following text: Text",
+        description: "Send transmission to current player from unit at location. Play WAV file. Modify transmission duration: Set number milliseconds. Display the following text: Text",
         params: [
-            { name: "Unit" },
-            { name: "Where" },
+            { name: "unit" },
+            { name: "location" },
             { name: "WAVName" },
             { name: "TimeModifier" },
-            { name: "Time" },
-            { name: "Text" },
+            { name: "time" },
+            { name: "text" },
             { name: "AlwaysDisplay" },
         ],
     },
@@ -522,7 +522,7 @@ exports.functions = {
             { name: "" },
         ],
     },
-    "UnpaauseTimer": {
+    "UnpauseTimer": {
         description: "Unpause the countdown timer.",
         params: [],
     },
@@ -533,52 +533,406 @@ exports.functions = {
     "Wait": {
         description: "[Warning] Don't use Wait action UNLESS YOU KNOW WHAT YOU'RE DOING!",
         params: [
-            { name: "Time" },
+            { name: "time" },
         ],
     },
     "SetMemory": {
         description: "Modify death counts for player: Set quantity for unit.",
         params: [
-            { name: "Offset" },
-            { name: "Modifier" },
-            { name: "Value" },
+            { name: "offset" },
+            { name: "modifier" },
+            { name: "value" },
+        ],
+    },
+    "SetMemoryX": {
+        description: "Modify death counts for player: Set quantity for unit. Only inner-mask scope will change.",
+        params: [
+            { name: "offset" },
+            { name: "modifier" },
+            { name: "value" },
+            { name: "mask" },
         ],
     },
     "SetMemoryEPD": {
         description: "Modify death counts for player: Set quantity for unit.",
         params: [
-            { name: "Offset" },
-            { name: "Modifier" },
-            { name: "Value" },
+            { name: "offset" },
+            { name: "modifier" },
+            { name: "value" },
+        ],
+    },
+    "SetMemoryXEPD": {
+        description: "Modify death counts for player: Set quantity for unit. Only inner-mask scope will change.",
+        params: [
+            { name: "offset" },
+            { name: "modifier" },
+            { name: "value" },
+            { name: "mask" },
         ],
     },
     "SetNextPtr": {
         description: "SetMemory(trg + 4, SetTo, dest)",
         params: [
-            { name: "Trg" },
+            { name: "trigger" },
             { name: "Dest" },
         ],
     },
     "Memory": {
         description: "Player has suffered quantity deaths of unit.",
         params: [
-            { name: "Offset" },
-            { name: "Comparison" },
-            { name: "Value" },
+            { name: "offset" },
+            { name: "comparison" },
+            { name: "value" },
+        ],
+    },
+    "MemoryX": {
+        description: "Player has suffered quantity deaths of unit. Only inner-mask scope will read.",
+        params: [
+            { name: "offset" },
+            { name: "comparison" },
+            { name: "value" },
+            { name: "mask" },
         ],
     },
     "MemoryEPD": {
         description: "Player has suffered quantity deaths of unit.",
         params: [
-            { name: "Offset" },
-            { name: "Comparison" },
-            { name: "Value" },
+            { name: "offset" },
+            { name: "comparison" },
+            { name: "value" },
+        ],
+    },
+    "MemoryXEPD": {
+        description: "Player has suffered quantity deaths of unit. Only inner-mask scope will read.",
+        params: [
+            { name: "offset" },
+            { name: "comparison" },
+            { name: "value" },
+            { name: "mask" },
+        ],
+    },
+    "EUDArray": {
+        description: "Define EUDArray.",
+        params: [
+            { name: "size" },
+        ],
+    },
+    "getcurpl": {
+        description: "Return a value of Current Player.",
+        params: [],
+    },
+    "setcurpl": {
+        description: "Set a value of Current Player.",
+        params: [
+            { name: "value" }
+        ],
+    },
+    "dwepdread_epd": {
+        description: "Read ptr/EPD value from EPD.",
+        params: [
+            { name: "offset" },
         ],
     },
     "dwread_epd": {
-        description: "Read dword/epd value from epd.",
+        description: "Read ptr value from EPD.",
         params: [
-            { name: "Offset" },
+            { name: "offset" },
+        ],
+    },
+    "dwread": {
+        description: "Read ptr value from ptr.",
+        params: [
+            { name: "offset" },
+        ],
+    },
+    "epdread_epd": {
+        description: "Read EPD value from EPD.",
+        params: [
+            { name: "offset" },
+        ],
+    },
+    "dwbreak": {
+        description: "Split dword to word/byte values.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "dwbreak2": {
+        description: "Split dword to word/byte values. (maintain multiplier).",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "dwadd": {
+        description: "Add a value to ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "dwadd_epd": {
+        description: "Add a value to EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "dwsubtract": {
+        description: "Add a value to ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "dwsubtract_epd": {
+        description: "Add a value to EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "dwwrite_epd": {
+        description: "Add a value to EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "bread": {
+        description: "Read a byte value from ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "bread_epd": {
+        description: "Read a byte value from EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "bwrite": {
+        description: "Write a byte value to ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "bwrite_epd": {
+        description: "Write a byte value to EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "wread": {
+        description: "Read a word value from ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "wread_epd": {
+        description: "Read a word value from EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "wwrite": {
+        description: "Write a word value to ptr.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "wwrite_epd": {
+        description: "Write a word value to EPD.",
+        params: [
+            { name: "offset" },
+            { name: "value" },
+        ],
+    },
+    "srand": {
+        description: "Set a random seed.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "getseed": {
+        description: "Get a random seed.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "dwrand": {
+        description: "Get a random dword value. Remember set random seed before using dwrand.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "rand": {
+        description: "Get a random word value. Remember set random seed before using rand.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "randomize": {
+        description: "Randomize a random seed.",
+        params: [],
+    },
+    "atan2": {
+        description: "Return a arctangent value of y/x.",
+        params: [
+            { name: "x" },
+            { name: "y" },
+        ],
+    },
+    "lengthdir": {
+        description: "Return dx, dy value of 'length' distance from starting point and in direction 'angle'.",
+        params: [
+            { name: "length" },
+            { name: "angle" },
+        ],
+    },
+    "sqrt": {
+        description: "Return dx, dy value of 'length' distance from starting point and in direction 'angle'.",
+        params: [
+            { name: "value" },
+        ],
+    },
+    "playerexist": {
+        description: "Check is player exists.",
+        params: [
+            { name: "player" },
+        ],
+    },
+    "EUDBinaryMax": {
+        description: "Return a maximum value in [min, max] range which satisfy condition.",
+        params: [
+            { name: "condition" },
+            { name: "minimum" },
+            { name: "maximum" },
+        ],
+    },
+    "EUDBinaryMin": {
+        description: "Return a minimum value in [min, max] range which satisfy condition.",
+        params: [
+            { name: "condition" },
+            { name: "minimum" },
+            { name: "maximum" },
+        ],
+    },
+    "EUDLoopRange": {
+        description: "Loop [start, end) range.",
+        params: [
+            { name: "start" },
+            { name: "end" },
+        ],
+    },
+    "EUDLoopUnit": {
+        description: "Loop all CUnits.",
+        params: [],
+    },
+    "EUDLoopUnit2": {
+        description: "Loop all CUnits.",
+        params: [],
+    },
+    "simepleprint": {
+        description: "Just print function.",
+        params: [
+            { name: "*args..." },
+        ],
+    },
+    "SetPName": {
+        description: "Set Player name.",
+        params: [
+            { name: "player" },
+            { name: "*args" },
+        ],
+    },
+    "SetPNamef": {
+        description: "Set Player name. support string formatting.",
+        params: [
+            { name: "player" },
+            { name: "format_string" },
+            { name: "*args" },
+        ],
+    },
+    "settbl": {
+        description: "Set stat_txt.tbl.",
+        params: [
+            { name: "tblID" },
+            { name: "offset" },
+            { name: "*args" },
+        ],
+    },
+    "settbl2": {
+        description: "Set stat_txt.tbl.",
+        params: [
+            { name: "tblID" },
+            { name: "offset" },
+            { name: "*args" },
+        ],
+    },
+    "settblf": {
+        description: "Set stat_txt.tbl. support string formatting.",
+        params: [
+            { name: "tblID" },
+            { name: "offset" },
+            { name: "format_string" },
+            { name: "*args" },
+        ],
+    },
+    "settblf2": {
+        description: "Set stat_txt.tbl. support string formatting.",
+        params: [
+            { name: "tblID" },
+            { name: "offset" },
+            { name: "format_string" },
+            { name: "*args" },
+        ],
+    },
+    "setloc": {
+        description: "Set location's X, Y coordinate to entered coordinate.",
+        params: [
+            { name: "location" },
+            { name: "x" },
+            { name: "y" },
+        ],
+    },
+    "setloc_epd": {
+        description: "Set location's X, Y coordinate to EPD's Position.",
+        params: [
+            { name: "location" },
+            { name: "epd" },
+        ],
+    },
+    "addloc": {
+        description: "add entered values to location's LEFT-TOP and RIGHT-LOW coordinate. use for parallel movement.",
+        params: [
+            { name: "location" },
+            { name: "x" },
+            { name: "y" },
+        ],
+    },
+    "getlocTL": {
+        description: "return location's LEFT-TOP coordinate.",
+        params: [
+            { name: "location" },
+        ],
+    },
+    "posread_epd": {
+        description: "return X, Y coordinate by targeted address.",
+        params: [
+            { name: "epd" },
+        ],
+    },
+    "posread_Cp": {
+        description: "return X, Y coordinate by targeted address(CP).",
+        params: [
+            { name: "cp" },
         ],
     },
 };

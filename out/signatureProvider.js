@@ -24,6 +24,9 @@ class EPSSignatureHelpProvider {
                 const methodNameRange = document.getWordRangeAtPosition(new vscode.Position(position.line, i - 1));
                 methodName = document.getText(methodNameRange);
             }
+            if (currentCharacter === ')') {
+                return undefined;
+            }
         }
         const native = functions_1.functions[methodName];
         const paramLength = native.params.length;
@@ -34,7 +37,7 @@ class EPSSignatureHelpProvider {
             paramArray.push(paramInfo);
         }
         const paramList = native.params.map((u) => `${u.name}`).join(", ");
-        const signatureLabel = methodName + '(' + paramList + ')';
+        const signatureLabel = `${methodName}(${paramList})`;
         const signatureHelp = new vscode.SignatureHelp();
         signatureHelp.signatures = [];
         const signatureInfo = new vscode.SignatureInformation(signatureLabel, native.description);
