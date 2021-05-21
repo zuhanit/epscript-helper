@@ -1,11 +1,12 @@
 {
 	"name": "epscript-helper",
 	"displayName": "epscript helper",
-	"description": "",
+	"description": "epscript language supporttt for vscode.",
 	"version": "0.0.1",
 	"author": {
 		"name": "zuhanit"
 	},
+	"publisher": "zuhanit",
 	"engines": {
 		"vscode": "^1.56.0"
 	},
@@ -14,10 +15,15 @@
 	],
 	"repository": {
 		"type": "git",
-		"directory": "https://github.com/zuhanit/epscript-helper",
 		"url": "https://github.com/zuhanit/epscript-helper.git"
 	},
+	"homepage": "https://github.com/zuhanit/epscript-helper/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/zuhanit/epscript-helper/issues",
+		"email": "zuhanit3@gmail.com"
+	},
 	"icon": "images/icon.png",
+	"license": "MIT",
 	"activationEvents": [
 		"onLanguage:epscript"
 	],
