@@ -12,11 +12,11 @@
 ## Features
 Code Completion, Signature Helper
 <p align="center">
-<img src="docs\completion.gif">
+<img src="docs/completion.gif">
 
 Hover
 <p align="center">
-<img src="docs\hover.gif">
+<img src="docs/hover.gif">
 
 ## Isues, Contributing
 * [Github Issues](https://github.com/zuhanit/epscript-helper/issues)
