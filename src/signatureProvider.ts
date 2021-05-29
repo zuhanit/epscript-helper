@@ -18,18 +18,29 @@ export class EPSSignatureHelpProvider implements vscode.SignatureHelpProvider {
         const totalWord = document.getText(new vscode.Range(new vscode.Position(position.line, 0), position));
         let paramCount: number = 0;
         let methodName: string = "";
+        let leftBracket: number = 0;
+        let rightBracket: number = 0;
 
-        for (let i = 0; i < totalWord.length; i++) {
+        for (let i = 0; i <= totalWord.length; i++) {
             let currentCharacter: string = totalWord.charAt(i);
             if (currentCharacter === ',') {
                 paramCount += 1;
             }
             if (currentCharacter === '(') {
                 const methodNameRange = document.getWordRangeAtPosition(new vscode.Position(position.line, i-1));
-                methodName = document.getText(methodNameRange);
+                const k = functions[methodName as keyof typeof functions] === undefined? true : false;
+                if (k === true) {
+                    methodName = document.getText(methodNameRange);
+                }
+                leftBracket += 1;
             }
             if (currentCharacter === ')') {
-                return undefined;
+                rightBracket += 1;
+            }
+            if (i === totalWord.length) {
+                if (leftBracket === rightBracket) {
+                    return undefined;
+                }
             }
         }
         const native = functions[methodName as keyof typeof functions];
