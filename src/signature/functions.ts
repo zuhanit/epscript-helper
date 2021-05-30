@@ -162,7 +162,7 @@ export const functions = {
     "CenterView": {
         description: "Center view for current player at location.",
         params: [
-            { name: "Location" },
+            { name: "location" },
         ],
     },
     "Comment": {
@@ -199,7 +199,7 @@ export const functions = {
         description: "Display for current player: text.",
         params: [
             { name: "text" },
-            { name: "AlwaysDisplay" },
+            { name: "alwaysDisplay" },
         ],
     },
     "Draw": {
@@ -238,41 +238,41 @@ export const functions = {
         params: [
             { name: "unit" },
             { name: "location" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardControl": {
         description: "Show Leader Board for most control of unit. Display label: label",
         params: [
             { name: "unit" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardGreed": {
         description: "Show Greed Leader Board for player closest to accumulation of number ore and gas.",
         params: [
-            { name: "Goal" }
+            { name: "goal" }
         ],
     },
     "LeaderBoardKills": {
         description: "Show Leader Board for most kills of unit. Display label: label",
         params: [
             { name: "unit" },
-            { name: "Label" }
+            { name: "label" }
         ],
     },
     "LeaderBoardScore": {
         description: "Show Leader Board for most points. Display label: label",
         params: [
             { name: "scoreType" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardResources": {
         description: "Show Leader Board for accumulation of most resource. Display label: label",
         params: [
             { name: "resourceType" },
-            { name: "Label" }
+            { name: "label" }
         ],
     },
     "LeaderBoardComputerPlayers": {
@@ -284,7 +284,7 @@ export const functions = {
     "MinimapPing": {
         description: "Show minimap ping for current player at location.",
         params: [
-            { name: "Location" },
+            { name: "location" },
         ],
     },
     "ModifyUnitEnergy": {
@@ -294,7 +294,7 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "ModifyUnitHangarCount": {
@@ -314,7 +314,7 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "ModifyUnitResourceAmount": {
@@ -323,7 +323,7 @@ export const functions = {
             { name: "count" },
             { name: "owner" },
             { name: "location" },
-            { name: "NewValue" },
+            { name: "value" },
         ],
     },
     "ModifyUnitShields": {
@@ -333,26 +333,26 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "MoveLocation": {
         description: "Center location labeled location on units owned by player at location.",
         params: [
             { name: "location" },
-            { name: "OnUnit" },
+            { name: "unit" },
             { name: "owner" },
-            { name: "DestLocation" },
+            { name: "destLocation" },
         ],
     },
     "MoveUnit": {
         description: "Move quantity units for player at location to destination.",
         params: [
             { name: "count" },
-            { name: "UnitType" },
+            { name: "unit" },
             { name: "owner" },
-            { name: "StartLocation" },
-            { name: "DestLocation" },
+            { name: "startLocation" },
+            { name: "destLocation" },
         ],
     },
     "MuteUnitSpeech": {
@@ -365,9 +365,9 @@ export const functions = {
         params: [
             { name: "unit" },
             { name: "owner" },
-            { name: "StartLocation" },
-            { name: "OrderType" },
-            { name: "DestLocation" },
+            { name: "startLocation" },
+            { name: "orderType" },
+            { name: "destLocation" },
         ],
     },
     "PauseGame": {
@@ -430,7 +430,7 @@ export const functions = {
     "SetCountdownTimer": {
         description: "Modify Countdown Timer: Set duration seconds.",
         params: [
-            { name: "TimeModifier" },
+            { name: "modifier" },
             { name: "number" },
         ],
     },
@@ -478,7 +478,7 @@ export const functions = {
         params: [
             { name: "player" },
             { name: "modifier" },
-            { name: "Amount" },
+            { name: "amount" },
             { name: "resourceType" },
         ],
     },
@@ -487,7 +487,7 @@ export const functions = {
         params: [
             { name: "player" },
             { name: "modifier" },
-            { name: "Amount" },
+            { name: "amount" },
             { name: "scoreType" },
         ],
     },
@@ -511,7 +511,7 @@ export const functions = {
             { name: "unit" },
             { name: "location" },
             { name: "WAVName" },
-            { name: "TimeModifier" },
+            { name: "modifier" },
             { name: "time" },
             { name: "text" },
             { name: "AlwaysDisplay" },
@@ -584,7 +584,7 @@ export const functions = {
         description: "SetMemory(trg + 4, SetTo, dest)",
         params: [
             { name: "trigger" },
-            { name: "Dest" },
+            { name: "dest" },
         ],
     },
     "Memory": {
