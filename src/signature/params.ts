@@ -323,6 +323,21 @@ export const params = {
             'NonAlliesVictoryPlayers'
         ]
     },
+    "orderType": {
+        description: "Order Type.",
+        type: [
+            'Attack', 'Patrol', 'Move'
+        ]
+    },
+    "amount": {
+        description: "",
+        type: [
+        ]
+    },
+    "alwaysDisplay": {
+        description: "Verify text will always display."
+        type: []
+    },
     "label": {
         description: "Label Description",
         type: [
