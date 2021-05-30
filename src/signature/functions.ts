@@ -1,4 +1,5 @@
 import { CallHierarchyIncomingCall } from "vscode";
+import { params } from "./params";
 
 export const functions = {
     "Accumulate": {
@@ -424,7 +425,7 @@ export const functions = {
         description: "Set Player to Ally status.",
         params: [
             { name: "player" },
-            { name: "Status" },
+            { name: "allyStatus" },
         ],
     },
     "SetCountdownTimer": {
@@ -495,7 +496,7 @@ export const functions = {
         description: "Set switch.",
         params: [
             { name: "switch" },
-            { name: "state" },
+            { name: "switchState" },
         ],
     },
     "TalkingPortrait": {
@@ -821,7 +822,7 @@ export const functions = {
         ],
     },
     "EUDBinaryMax": {
-        description: "Return a maximum value in [min, max] range which satisfy condition.",
+        description: "Find maximum x satisfying cond(x) using binary search.",
         params: [
             { name: "condition" },
             { name: "minimum" },
@@ -829,7 +830,7 @@ export const functions = {
         ],
     },
     "EUDBinaryMin": {
-        description: "Return a minimum value in [min, max] range which satisfy condition.",
+        description: "Find minimum x satisfying cond(x) using binary search.",
         params: [
             { name: "condition" },
             { name: "minimum" },
@@ -943,10 +944,144 @@ export const functions = {
             { name: "epd" },
         ],
     },
-    "posread_Cp": {
+    "posread_cp": {
         description: "return X, Y coordinate by targeted address(CP).",
         params: [
             { name: "cp" },
         ],
     },
+    "IsPName": {
+        description: "Return true when current player's name matched.",
+        params: [
+            { name: "player" },
+            { name: "name" },
+        ]
+    },
+    "parse": {
+        description: "",
+        params: [
+            { name: "dest" },
+            { name: "radix" },
+        ]
+    },
+    "DisplayTextAt": {
+        description: "DisplayText, but can select display line. faster than StringBuffer.printAt",
+        params: [
+            { name: "line" },
+            { name: "string" },
+        ]
+    },
+    "PColor": {
+        description: "Return player color code.",
+        params: [
+            { name: "player" }
+        ]
+    },
+    "SetKills": {
+        description: "",
+        params: [
+            { name: "player" },
+            { name: "modifier" },
+            { name: "number" },
+            { name: "unit" },
+        ]
+    },
+    "strcpy": {
+        description: "Copy String from provided address.",
+        params: [
+            { name: "dest" },
+            { name: "src" },
+        ]
+    },
+    "strcmp": {
+        description: "Compare two strings.",
+        params: [
+            { name: "string" },
+            { name: "string" },
+        ]
+    },
+    "memcpy": {
+        description: "Copy memory.",
+        params: [
+            { name: "dest" },
+            { name: "src" },
+            { name: "copylen" }
+        ]
+    },
+    "getuserplayerid": {
+        description: "Get user player id.",
+        params: []
+    },
+    "strlen": {
+        description: "Return length of string.",
+        params: [
+            { name: "src" }
+        ]
+    },
+    "strlen_epd": {
+        description: "Return length of string.",
+        params: [
+            { name: "epd" }
+        ]
+    },
+    "PName": {
+        description: "Get Name of Player.",
+        params: [
+            { name: "number" }
+        ]
+    },
+    "ptr2s": {
+        description: "Get String from provided address.",
+        params: [
+            { name: "dest" },
+        ]
+    },
+    "epd2s": {
+        description: "Get String from provided address.",
+        params: [
+            { name: "epd" },
+        ]
+    },
+    "hptr": {
+        description: "Convert to hex.",
+        params: [
+            { name: "number" },
+        ]
+    },
+    "GetMapStringAddr": {
+        description: "Get Address of TrgString",
+        params: [
+            { name: "number" },
+        ]
+    },
+    "eprintln": {
+        descripton: "Display text at error line.",
+        params: [
+            { name: "*args" }
+        ]
+    },
+    "QueueGameCommand": {
+        description: "Queue game command to packet queue.",
+        params: [
+            { name: "data" },
+            { name: "size" }
+        ]
+    },
+    "getgametick": {
+        description: "Get current gameb tick value",
+        params: [],
+    },
+    "EUDLoopPlayer": {
+        description: "Loop Players. if want to skip check force or race, skip parameter.",
+        params: [
+            { name: "playerType" },
+            { name: "force" },
+            { name: "race"},
+        ]
+    },
+    "getnextchatdst": {
+        description: "Get next chat destination.",
+        params: [
+        ]
+    }
 };
