@@ -1,4 +1,5 @@
 import { CallHierarchyIncomingCall } from "vscode";
+import { params } from "./params";
 
 export const functions = {
     "Accumulate": {
@@ -162,7 +163,7 @@ export const functions = {
     "CenterView": {
         description: "Center view for current player at location.",
         params: [
-            { name: "Location" },
+            { name: "location" },
         ],
     },
     "Comment": {
@@ -199,7 +200,7 @@ export const functions = {
         description: "Display for current player: text.",
         params: [
             { name: "text" },
-            { name: "AlwaysDisplay" },
+            { name: "alwaysDisplay" },
         ],
     },
     "Draw": {
@@ -238,41 +239,41 @@ export const functions = {
         params: [
             { name: "unit" },
             { name: "location" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardControl": {
         description: "Show Leader Board for most control of unit. Display label: label",
         params: [
             { name: "unit" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardGreed": {
         description: "Show Greed Leader Board for player closest to accumulation of number ore and gas.",
         params: [
-            { name: "Goal" }
+            { name: "goal" }
         ],
     },
     "LeaderBoardKills": {
         description: "Show Leader Board for most kills of unit. Display label: label",
         params: [
             { name: "unit" },
-            { name: "Label" }
+            { name: "label" }
         ],
     },
     "LeaderBoardScore": {
         description: "Show Leader Board for most points. Display label: label",
         params: [
             { name: "scoreType" },
-            { name: "Label" },
+            { name: "label" },
         ],
     },
     "LeaderBoardResources": {
         description: "Show Leader Board for accumulation of most resource. Display label: label",
         params: [
             { name: "resourceType" },
-            { name: "Label" }
+            { name: "label" }
         ],
     },
     "LeaderBoardComputerPlayers": {
@@ -284,7 +285,7 @@ export const functions = {
     "MinimapPing": {
         description: "Show minimap ping for current player at location.",
         params: [
-            { name: "Location" },
+            { name: "location" },
         ],
     },
     "ModifyUnitEnergy": {
@@ -294,7 +295,7 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "ModifyUnitHangarCount": {
@@ -314,7 +315,7 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "ModifyUnitResourceAmount": {
@@ -323,7 +324,7 @@ export const functions = {
             { name: "count" },
             { name: "owner" },
             { name: "location" },
-            { name: "NewValue" },
+            { name: "value" },
         ],
     },
     "ModifyUnitShields": {
@@ -333,26 +334,26 @@ export const functions = {
             { name: "unit" },
             { name: "owner" },
             { name: "location" },
-            { name: "Percent" },
+            { name: "percent" },
         ],
     },
     "MoveLocation": {
         description: "Center location labeled location on units owned by player at location.",
         params: [
             { name: "location" },
-            { name: "OnUnit" },
+            { name: "unit" },
             { name: "owner" },
-            { name: "DestLocation" },
+            { name: "destLocation" },
         ],
     },
     "MoveUnit": {
         description: "Move quantity units for player at location to destination.",
         params: [
             { name: "count" },
-            { name: "UnitType" },
+            { name: "unit" },
             { name: "owner" },
-            { name: "StartLocation" },
-            { name: "DestLocation" },
+            { name: "startLocation" },
+            { name: "destLocation" },
         ],
     },
     "MuteUnitSpeech": {
@@ -365,9 +366,9 @@ export const functions = {
         params: [
             { name: "unit" },
             { name: "owner" },
-            { name: "StartLocation" },
-            { name: "OrderType" },
-            { name: "DestLocation" },
+            { name: "startLocation" },
+            { name: "orderType" },
+            { name: "destLocation" },
         ],
     },
     "PauseGame": {
@@ -424,13 +425,13 @@ export const functions = {
         description: "Set Player to Ally status.",
         params: [
             { name: "player" },
-            { name: "Status" },
+            { name: "allyStatus" },
         ],
     },
     "SetCountdownTimer": {
         description: "Modify Countdown Timer: Set duration seconds.",
         params: [
-            { name: "TimeModifier" },
+            { name: "modifier" },
             { name: "number" },
         ],
     },
@@ -478,7 +479,7 @@ export const functions = {
         params: [
             { name: "player" },
             { name: "modifier" },
-            { name: "Amount" },
+            { name: "amount" },
             { name: "resourceType" },
         ],
     },
@@ -487,7 +488,7 @@ export const functions = {
         params: [
             { name: "player" },
             { name: "modifier" },
-            { name: "Amount" },
+            { name: "amount" },
             { name: "scoreType" },
         ],
     },
@@ -495,7 +496,7 @@ export const functions = {
         description: "Set switch.",
         params: [
             { name: "switch" },
-            { name: "state" },
+            { name: "switchState" },
         ],
     },
     "TalkingPortrait": {
@@ -511,7 +512,7 @@ export const functions = {
             { name: "unit" },
             { name: "location" },
             { name: "WAVName" },
-            { name: "TimeModifier" },
+            { name: "modifier" },
             { name: "time" },
             { name: "text" },
             { name: "AlwaysDisplay" },
@@ -584,7 +585,7 @@ export const functions = {
         description: "SetMemory(trg + 4, SetTo, dest)",
         params: [
             { name: "trigger" },
-            { name: "Dest" },
+            { name: "dest" },
         ],
     },
     "Memory": {
@@ -821,7 +822,7 @@ export const functions = {
         ],
     },
     "EUDBinaryMax": {
-        description: "Return a maximum value in [min, max] range which satisfy condition.",
+        description: "Find maximum x satisfying cond(x) using binary search.",
         params: [
             { name: "condition" },
             { name: "minimum" },
@@ -829,7 +830,7 @@ export const functions = {
         ],
     },
     "EUDBinaryMin": {
-        description: "Return a minimum value in [min, max] range which satisfy condition.",
+        description: "Find minimum x satisfying cond(x) using binary search.",
         params: [
             { name: "condition" },
             { name: "minimum" },
@@ -943,10 +944,144 @@ export const functions = {
             { name: "epd" },
         ],
     },
-    "posread_Cp": {
+    "posread_cp": {
         description: "return X, Y coordinate by targeted address(CP).",
         params: [
             { name: "cp" },
         ],
     },
+    "IsPName": {
+        description: "Return true when current player's name matched.",
+        params: [
+            { name: "player" },
+            { name: "name" },
+        ]
+    },
+    "parse": {
+        description: "",
+        params: [
+            { name: "dest" },
+            { name: "radix" },
+        ]
+    },
+    "DisplayTextAt": {
+        description: "DisplayText, but can select display line. faster than StringBuffer.printAt",
+        params: [
+            { name: "line" },
+            { name: "string" },
+        ]
+    },
+    "PColor": {
+        description: "Return player color code.",
+        params: [
+            { name: "player" }
+        ]
+    },
+    "SetKills": {
+        description: "",
+        params: [
+            { name: "player" },
+            { name: "modifier" },
+            { name: "number" },
+            { name: "unit" },
+        ]
+    },
+    "strcpy": {
+        description: "Copy String from provided address.",
+        params: [
+            { name: "dest" },
+            { name: "src" },
+        ]
+    },
+    "strcmp": {
+        description: "Compare two strings.",
+        params: [
+            { name: "string" },
+            { name: "string" },
+        ]
+    },
+    "memcpy": {
+        description: "Copy memory.",
+        params: [
+            { name: "dest" },
+            { name: "src" },
+            { name: "copylen" }
+        ]
+    },
+    "getuserplayerid": {
+        description: "Get user player id.",
+        params: []
+    },
+    "strlen": {
+        description: "Return length of string.",
+        params: [
+            { name: "src" }
+        ]
+    },
+    "strlen_epd": {
+        description: "Return length of string.",
+        params: [
+            { name: "epd" }
+        ]
+    },
+    "PName": {
+        description: "Get Name of Player.",
+        params: [
+            { name: "number" }
+        ]
+    },
+    "ptr2s": {
+        description: "Get String from provided address.",
+        params: [
+            { name: "dest" },
+        ]
+    },
+    "epd2s": {
+        description: "Get String from provided address.",
+        params: [
+            { name: "epd" },
+        ]
+    },
+    "hptr": {
+        description: "Convert to hex.",
+        params: [
+            { name: "number" },
+        ]
+    },
+    "GetMapStringAddr": {
+        description: "Get Address of TrgString",
+        params: [
+            { name: "number" },
+        ]
+    },
+    "eprintln": {
+        descripton: "Display text at error line.",
+        params: [
+            { name: "*args" }
+        ]
+    },
+    "QueueGameCommand": {
+        description: "Queue game command to packet queue.",
+        params: [
+            { name: "data" },
+            { name: "size" }
+        ]
+    },
+    "getgametick": {
+        description: "Get current gameb tick value",
+        params: [],
+    },
+    "EUDLoopPlayer": {
+        description: "Loop Players. if want to skip check force or race, skip parameter.",
+        params: [
+            { name: "playerType" },
+            { name: "force" },
+            { name: "race"},
+        ]
+    },
+    "getnextchatdst": {
+        description: "Get next chat destination.",
+        params: [
+        ]
+    }
 };

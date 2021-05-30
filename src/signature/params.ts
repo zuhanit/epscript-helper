@@ -270,7 +270,7 @@ export const params = {
     "scoreType": {
         description: "ScoreType Description",
         type: [
-            'Units', 'Buildings', 'UnitsAndBuildings', 'TotalKills', 'Razings', 'KillsAndRazings', 'Custom'
+            'Units', 'Buildings', 'UnitsAndBuildings', 'Kills', 'Razings', 'KillsAndRazings', 'Custom'
         ]
     },
     "switch": {
@@ -282,6 +282,12 @@ export const params = {
         description: "State",
         type: [
             'Set', 'Cleared'
+        ]
+    },
+    "switchState": {
+        description: "Switch State",
+        type: [
+            'Set', 'Clear', 'Toggle', 'Random'
         ]
     },
     "text": {
@@ -322,6 +328,21 @@ export const params = {
             'CurrentPlayer', 'Foes', 'Allies', 'NeutralPlayers', 'Force1', 'Force2', 'Force3', 'Force4',
             'NonAlliesVictoryPlayers'
         ]
+    },
+    "orderType": {
+        description: "Order Type.",
+        type: [
+            'Attack', 'Patrol', 'Move'
+        ]
+    },
+    "amount": {
+        description: "",
+        type: [
+        ]
+    },
+    "alwaysDisplay": {
+        description: "Verify text will always display.",
+        type: []
     },
     "label": {
         description: "Label Description",
@@ -466,4 +487,34 @@ export const params = {
         type: [
         ]
     },
+    "name": {
+        description: "Name that will checked. use String or Db types.",
+        type: [],
+    },
+    "allyStatus": {
+        description: "",
+        type: [
+            'Enemy', 'Ally', 'AlliedVictory'
+        ]
+    },
+    "src": {
+        description: "",
+        type: []
+    },
+    "string": {
+        description: "",
+        type: []
+    },
+    "force": {
+        description: "Force.",
+        type: [
+            'Force1', 'Force2', 'Force3', 'Force4'
+        ]
+    },
+    "race": {
+        description: "Race.",
+        type: [
+            'Protoss', 'Terran', 'Zerg'
+        ]
+    }
 };
