@@ -70,7 +70,6 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
             }
         } else if(inScope === false) {
             if(functions[methodName as keyof typeof functions] === undefined? true : false) {
-                console.log('isFunction');
                 for (let i in functions) {
                     const completion = new vscode.CompletionItem(i);
                     completion.kind = vscode.CompletionItemKind.Function;
@@ -81,33 +80,45 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
         }
         const objects = this.getFileObjects(document, position.line);
         for (let i = 0; i < objects.length; i++) {
-            const completion = new vscode.CompletionItem(objects[i].name);
+            const completion = new vscode.CompletionItem(objects[i].name, vscode.CompletionItemKind.Class);
             completionItemList.push(completion);
+        }
+        const linePrefix = document.lineAt(position.line).text.substr(0, position.character);
+        for (const k of objects) {
+            if (linePrefix.endsWith(`${k.name}.`)) {
+                for (const j of k.properties) {
+                    const completion = new vscode.CompletionItem(j.name);
+                    completion.documentation = new vscode.MarkdownString(j.documentation);
+                    completionItemList.push(completion);
+                }
+            }
         }
         return completionItemList;
     }
 
     // }로 닫히기 전까지 오브젝트 영역임. 오브젝트 라인이 어디까지인지 line을 체크해야 함.
     // Object 인터페이스를 하나 만들고, 거기에 파일 내의 객체를 전부 담으면 더 효율적이긴 할텐데...
-    // 그냥 파일 내의 모든 Object를 completionlist에 넣으면 되잖아?
+    // 그냥 파일 내의 모든 Object를 completionlist에 넣으면 되잖아? -> 멍청한 일인 것 같은데
 
     private getFileObjects(document: vscode.TextDocument, positionLine: number) {
         class Object {
             name: string;
-            properties!: Property[];
+            properties: Property[];
 
             constructor(name: string) {
                 this.name = name;
+                this.properties = [];
             }
         }
         class Property {
             name: string;
             declaration: string;
-            type?: string;
+            documentation: string;
 
             constructor(name: string, declaration: string) {
                 this.name = name;
                 this.declaration = declaration;
+                this.documentation = "";
             };
         }
 
@@ -121,7 +132,6 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
                 const objectName = textArray[3];
                 const objectPosition = getObjectPosition(objectName, document, positionLine);
                 const objectDetails = getObjectDetails(objectName, document, objectPosition.startLine, objectPosition.endLine);
-
                 const object = new Object(objectName);
                 for (let i = 0; i < objectDetails.length; i++) {
                     object.properties.push(objectDetails[i]);
@@ -133,19 +143,26 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
 
         function getObjectPosition(word: string, document: vscode.TextDocument, positionLine: number) {
             const objectDefineRegex = new RegExp('(object)(\\s)(' + word + ')(\\s)({)');
-            const objectEndRegex = new RegExp('}');
+            const objectEndRegex = new RegExp('(};)');
             let startLine: number = 0;
             let endLine: number = 0;
-    
+
             for (let currentLine = 0; currentLine < positionLine; currentLine++) {
                 const lineText = document.lineAt(currentLine).text;
                 if (objectDefineRegex.test(lineText)) {
                     startLine = currentLine;
-                }
-                if (objectEndRegex.test(lineText)) {
-                    endLine = currentLine;
+                    break;
                 }
             }
+    
+            for (let currentLine = startLine; currentLine < positionLine; currentLine++) {
+                const lineText = document.lineAt(currentLine).text;
+                if (objectEndRegex.test(lineText)) {
+                    endLine = currentLine;
+                    break;
+                }
+            }
+
             return {
                 startLine: startLine,
                 endLine: endLine
@@ -160,11 +177,12 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
                 const lineText = currentTextLine.text;
                 const textArray = lineText.match(regex);
                 if (textArray) {
-                    const properties = new Property(textArray[1], textArray[0]);
-                    const typeofProperty = textArray[2].match('(:)(\\s)(.*)');
+                    const properties = new Property(textArray[3].substring(0, textArray[3].length-1), textArray[1]);
+                    const typeofProperty = textArray[3].match('(.*)(:)(\\s)(.*)(;)');
                     if (typeofProperty) { // Type Defined.
-                        properties.type = textArray[2];
+                        properties.name = typeofProperty[1];
                     }
+                    properties.documentation = `(property) property.${textArray[3].substring(0, textArray[3].length-1)}`;
                     retArray.push(properties);
                 }
             }
