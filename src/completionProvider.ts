@@ -19,6 +19,7 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
         let inScope: boolean = false;
         let leftClose: number = 0;
         let rightClose: number = 0;
+        let isMethod: boolean = false;
         const completionItemList = [];
 
         // Check code is surrounded. if leftClose > rightClose => surrounded.
@@ -83,15 +84,19 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
             const completion = new vscode.CompletionItem(objects[i].name, vscode.CompletionItemKind.Class);
             completionItemList.push(completion);
         }
+
         const linePrefix = document.lineAt(position.line).text.substr(0, position.character);
-        for (const k of objects) {
-            if (linePrefix.endsWith(`${k.name}.`)) {
-                for (const j of k.properties) {
-                    const completion = new vscode.CompletionItem(j.name);
-                    completion.documentation = new vscode.MarkdownString(j.documentation);
-                    completionItemList.push(completion);
+        if (linePrefix.endsWith('.')) {
+            const objectName: string = this.getObjectName(document, position.line);
+            objects.map((u => {
+                if (u.name === objectName) {
+                    for (const k of u.properties) {
+                        const completion = new vscode.CompletionItem(k.name);
+                        completion.documentation = new vscode.MarkdownString(k.documentation);
+                        completionItemList.push(completion);
+                    }
                 }
-            }
+            }));
         }
         return completionItemList;
     }
@@ -99,6 +104,24 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
     // }로 닫히기 전까지 오브젝트 영역임. 오브젝트 라인이 어디까지인지 line을 체크해야 함.
     // Object 인터페이스를 하나 만들고, 거기에 파일 내의 객체를 전부 담으면 더 효율적이긴 할텐데...
     // 그냥 파일 내의 모든 Object를 completionlist에 넣으면 되잖아? -> 멍청한 일인 것 같은데
+    // Object를 만드는 걸 완성했으니 이제 그 객체형을 부착했을 때를 만들어야 한다.
+    // const k = Object();
+    private getObjectName(document: vscode.TextDocument, positionLine: number) {
+        const lineText = document.lineAt(positionLine).text;
+        const textArray = lineText.match(new RegExp('(.*)(\.)'));
+        let objectName: string = "";
+        if (textArray) {
+            for (let currentLine = 0; currentLine < positionLine; currentLine++) {
+                const currentText = document.lineAt(currentLine).text;
+                const reg = new RegExp('(var|const)(\\s)(' + textArray[1] + ')(\\s)(=)(\\s)(.*)(\\(\\))');
+                const matchedText = currentText.match(reg);
+                if (matchedText) {
+                    objectName = matchedText[7];
+                }
+            }
+        }
+        return objectName;
+    }
 
     private getFileObjects(document: vscode.TextDocument, positionLine: number) {
         class Object {
