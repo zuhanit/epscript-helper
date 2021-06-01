@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext, document: vscode.Text
 	
 	context.subscriptions.push(
 		vscode.languages.registerCompletionItemProvider(
-			'epscript', new EPSCompletionItemProvider()
+			'epscript', new EPSCompletionItemProvider(), '.'
 		)
 	);
 	
