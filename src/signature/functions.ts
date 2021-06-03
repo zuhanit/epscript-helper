@@ -1055,7 +1055,7 @@ export const functions = {
         ]
     },
     "eprintln": {
-        descripton: "Display text at error line.",
+        description: "Display text at error line.",
         params: [
             { name: "*args" }
         ]
