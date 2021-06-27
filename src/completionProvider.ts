@@ -1,10 +1,7 @@
-import { NONAME, resolveTxt } from "dns";
-import { type } from "os";
-import { stringify } from "querystring";
-import { start } from "repl";
 import * as vscode from "vscode";
 import { functions } from "./signature/functions";
 import { params } from "./signature/params";
+import getFileFunction  from './parse/function';
 export class EPSCompletionItemProvider implements vscode.CompletionItemProvider {
     public provideCompletionItems(
         document: vscode.TextDocument, 
@@ -136,6 +133,12 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
             }));
         }
         */
+        const localFunctions = getFileFunction(document, position.line);
+        for (const func of localFunctions) {
+            const completion = new vscode.CompletionItem(func.name);
+            completion.kind = vscode.CompletionItemKind.Function;
+            completionItemList.push(completion);
+        }
         return completionItemList;
     }
 
