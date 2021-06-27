@@ -514,7 +514,22 @@ export const params = {
     "race": {
         description: "Race.",
         type: [
-            'Protoss', 'Terran', 'Zerg'
+            'Protoss', 'Terran', 'Zerg', 'Independent', 'Neutral', 'User selectable',
+            'Inactive', 'Human', 'Human', 'Starcraft Campaign Editor'
         ]
+    },
+    "playerType": {
+        description: "Player Type.",
+        type: [
+            'Unused', 'Rescuable', 'Computer', 'Human', 'Neutral'
+        ]
+    },
+    "data": {
+        description: "Data.",
+        type: []
+    },
+    "dest": {
+        description: "Description.",
+        type: []
     }
 };

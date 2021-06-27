@@ -1,4 +1,3 @@
-import { CallHierarchyIncomingCall } from "vscode";
 import { params } from "./params";
 
 export const functions = {
@@ -31,10 +30,10 @@ export const functions = {
     "Command": {
         description: "",
         params: [
-            { name: "player", description: "" },
-            { name: "comparison", description: "" },
-            { name: "number", description: "" },
-            { name: "unit", description: "" },
+            { name: "player" },
+            { name: "comparison" },
+            { name: "number" },
+            { name: "unit" },
         ],
     },
     "CommandLeast": {
@@ -149,7 +148,6 @@ export const functions = {
         params: [
             { name: "player" },
             { name: "scoreType" },
-            { name: "comparison" },
             { name: "comparison" },
         ],
     },
