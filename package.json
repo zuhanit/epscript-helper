@@ -2,7 +2,7 @@
 	"name": "epscript-helper",
 	"displayName": "epscript helper",
 	"description": "epscript language support for vscode.",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"author": {
 		"name": "zuhanit"
 	},
