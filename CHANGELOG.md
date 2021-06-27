@@ -7,3 +7,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+
+## [0.0.4] - 2021-06-04
+### Added
+- Object Code Completion.
+- More functions and parameters suggestion.
+
+## [0.0.5] - 2021-06-28
+### Added
+- User Custom Function Completion.
+- Fix typo.
