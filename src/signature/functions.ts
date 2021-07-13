@@ -24,7 +24,7 @@ export const functions = {
             { name: "comparison" },
             { name: "number" },
             { name: "unit" },
-            { name: "number" },
+            { name: "location" },
         ],
     },
     "Command": {
