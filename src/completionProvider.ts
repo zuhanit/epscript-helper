@@ -75,7 +75,7 @@ export class EPSCompletionItemProvider implements vscode.CompletionItemProvider 
                     const currentParameterName = currentFunctionParams.params[paramCount].name;
                     const currentParameterTypes = params[currentParameterName as keyof typeof params].type;
                     for (let i in currentParameterTypes) {
-                        const parameterTypesName: string = currentParameterName === 'Unit' ? `"${currentParameterTypes[i]}"` : `${currentParameterTypes[i]}`;
+                        const parameterTypesName: string = currentParameterName === 'unit' ? `"${currentParameterTypes[i]}"` : `${currentParameterTypes[i]}`;
                         const completion = new vscode.CompletionItem(parameterTypesName);
                         completion.kind = vscode.CompletionItemKind.Constant;
                         completionItemList.push(completion);
